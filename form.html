@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        margin-left: 28%;
+        margin-top: 5%;
+        box-shadow: 0px 0px 3px 5px  grey;
+        padding: 5%;
+        width: 20%;
+    }
+    .container h1
+    {
+        margin-left: 15%;   
+    }
+    .label
+    {
+        margin-left: 15%;
+    }
+    .label input
+    {
+        padding: 2%;
+        margin: 2%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form action="" method="POST">
+            <h1>WEB LAB</h1>
+
+            <div class="label">
+                <input type="text" name="name" placeholder="enter your name">
+            </div>
+            <div class="label">
+                <input type="number" name="usn" placeholder="enter your roll_no">
+            </div>
+            <div class="label">
+                <input type="number" name="marks" placeholder="enter your marks">
+            </div>
+            <div class="label">
+                <input type="submit" name="submit" value="submit">
+            </div>
+
+        </form>
+    </div>
+</form>
+ <?php
+      
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "labtest";
+$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname) or die();
+if(isset($_POST['submit']))
+{
+    $name=$_POST['name'];
+    $usn=$_POST['usn'];
+    $marks=$_POST['marks'];
+    $sql="INSERT INTO student SET
+    name='$name',
+    usn='$usn',
+    marks='$marks'";
+    $res=mysqli_query($con,$sql);
+
+}
+?>
+</body>
+
+</html>
